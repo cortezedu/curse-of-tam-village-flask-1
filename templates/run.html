@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/run.gif') }} width="300px" /></p>
+        <p class="fw-bolder">Are you sure you want to run away?</p>
+        <a href="/fail" class="btn btn-success">Yes, I cannot do it.</a>
+        <a href="/fight" class="btn btn-danger">No, take me back to the fight!</a>
+    </div>
+{% endblock %}

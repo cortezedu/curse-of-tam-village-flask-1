@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <p><strong>Clara:</strong> "{{session['title']}} {{session['hero_name']}}, I am glad you saw me before you started investigating. Please take one item with you for your journey."</p>  
+        <br />
+        <div class="row p-2">
+            <div class="col">
+                <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/apple.gif') }} width="200px" /></p>
+            </div>
+            <div class="col">
+                <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/beef_stew.gif') }} width="200px" /></p>
+            </div>
+            <div class="col">
+                <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/ham.gif') }} width="200px" /></p>
+            </div>
+        </div>
+        <form method="POST" action="/branch-1b" class="form">
+            <label class="form-label">Select Item:</label>
+            <select class="form-select my-2" aria-label="Default select" name='heal_item' required>
+                <option selected>--Select--</option>
+                <option value="apple">Apple</option>
+                <option value="beef">Beef Stew</option>
+                <option value="ham">Ham</option>
+            </select>
+            <input type="submit" class="btn btn-dark">
+        </form>
+    </div>
+{% endblock %}

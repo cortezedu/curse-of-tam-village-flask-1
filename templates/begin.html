@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <div class="row p-2">
+            <div class="col-12 col-md-6">
+                <p><strong>Clara:</strong> "Hello there, welcome to Tam Village. All travelers must fill out the Tam Village Entry Form."</p>
+                <p class="fst-italic">Clara hands over the entry form.</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/beach.gif') }} width="400px" /></p>
+            </div>
+        </div>
+        <h3>Tam Village Entry Form</h3>
+        <form method="POST" action="/enter-village" class="form">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control my-2" name="hero-name" required>
+            <label class="form-label">Gender?</label>
+            <input type="text" class="form-control my-2" name="gender" required>
+            <label class="form-label">Purpose of Visit:</label>
+            <select class="form-select my-2" aria-label="Default select purpose" name='purpose' required>
+                <option selected>--Select--</option>
+                <option value="vacation">Vacation</option>
+                <option value="business">Business</option>
+                <option value="relocation">Relocation</option>
+            </select>
+            <input type="submit" class="btn btn-dark">
+        </form>
+    </div>
+{% endblock %}

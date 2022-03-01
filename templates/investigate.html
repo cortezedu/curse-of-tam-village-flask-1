@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        {% if heal_level %}
+            <p><strong>Clara:</strong> "{{heal_level}} choice! The village historian stopped by my office yesterday. She told me that there have been some strange sightings nearby. You might want to give her a visit for more information. She also might have something that could help you with your journey. Goodbye for now! I know you can do it!" </p>
+        {% elif armor_level %}
+            <p><strong>Flora (Village Healer):</strong> "{{armor_level}} choice! 
+            {% if session['visit'] == 1 %}
+                You should see Darla, the village historian before you go to the cave."
+            {% elif session['visit'] == 2 %}
+                Don't forget to bring back the venom."
+            {% endif %}
+            </p>
+        {% elif weapon_level %}
+            <p><strong>Darla (Village Historian):</strong> "{{weapon_level}} choice! 
+            {% if session['visit'] == 1 %}
+                You should see Flora, the village healer before you go to the cave."
+            {% elif session['visit'] == 2 %}
+                You're ready to visit the cave now."
+            {% endif %}
+            </p>
+        {% endif %}
+        <div class="row p-2">
+            <div class="col">
+                <form method="POST" action="/branch-2" class="form">
+                    <label class="form-label">Where would you like to go?</label>
+                    <select class="form-select my-2" aria-label="Default select" name='answer' required>
+                        <option selected>--Select--</option>
+                        {% if session['visit'] == 0 %}
+                        <option value="historian">Visit the village historian.</option>
+                        <option value="healer">Visit the village healer.</option>
+                        {% elif armor_level %}
+                            {% if session['visit'] == 1 %}
+                            <option value="historian">Visit the village historian.</option>
+                            {% endif %}
+                        {% elif weapon_level %}
+                            {% if session['visit'] == 1 %}
+                            <option value="healer">Visit the village healer.</option>
+                            {% endif %}
+                        {% endif %}
+                        <option value="cave">Explore the strange cave down by the beach.</option>
+                    </select>
+                    <input type="submit" class="btn btn-dark">
+                </form>
+            </div>
+            <div class="col">
+                <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/fork.gif') }} width="400px" /></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

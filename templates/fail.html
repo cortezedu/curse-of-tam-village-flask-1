@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <h1 class="fw-bolder">Game over. You failed the mission!</h1>
+        <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/fail.gif') }} width="400px" /></p>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <p><strong>Flora (Village Healer):</strong> "Welcome {{session['hero_name']}}. I see you came to hear about the strange illnesses. I have been trying to figure out a cure to heal the sick villagers. All the sick villagers have mentioned going down to a cave at the beach. I had never seen a cave there before. Anyways, all the villagers have this strange prick mark on the back of their necks. It seems they have been poisoned. I will need a sample of the venom that poisoned them in order to make a cure. Please go down to the beach to explore the cave. Take one of these armor with you to protect yourself from whatever it is."</p>  
+        <br />
+          
+        <form method="POST" action="/branch-4" class="form">
+            <label class="form-label">Select Item:</label>
+            <select class="form-select my-2" aria-label="Default select" name='armor_item' required>
+                <option selected>--Select--</option>
+                <option value="steel">Steel Plate</option>
+                <option value="diamond">Diamond Plate</option>
+                <option value="graphene">Graphene Plate</option>
+            </select>
+            <input type="submit" class="btn btn-dark">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row p-2">
+        <div class="col-12 col-md-6">
+            <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/cave.gif') }} width="400px" /></p>
+        </div>
+        <div class="col-12 col-md-6">
+            <p>{{session['hero_name']}} enters the cave...</p>
+            <br />
+            <p><strong>(???):</strong> "These villagers are so annoying! What makes them think they can trespass? Aga! Get over here Aga! Clean this mess up. I'm going to take a nap at the back. Do not wake me if it is not important."</p>
+            <br />
+            <p><strong>Aga:</strong> "Yes, Sorceress Lanie. Hilitai and I will get this done."</p>
+            <br />
+            <p>Sorceress Lanie walks to the back to sleep.</p>
+            <br />
+            <p><strong>Hilitai:</strong> "Why'd you bring me into it Aga? You do the work. I'm busy."</p>
+            <p>...</p>
+            <p>...</p>
+            <p>...</p>
+            <p>Hilitai sees you!</p>
+            <br />
+            <p><strong>Hilitai:</strong> "Hey you! What are you doing here? Ugh, not another villager. Aga, let's go deal with this."</p>
+            <a href="/fight" class="my-5 btn btn-dark">Begin Fight</a>
+        </div>
+    </div>
+{% endblock %}

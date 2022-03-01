@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <div class="row p-2">
+            <div class="col-12 col-md-6">
+                <p><strong>Clara:</strong> "Thank you for filling out the form {{session['title']}} {{session['hero_name']}}. Looks like you are here for {{purpose}}... Just wait one second, you're the hero the Agency has assigned to our case! You're FINALLY here! Let me get Chief Dan right on over."</p>  
+                <p><strong>Chief Dan:</strong> "Welcome {{session['hero_name']}}! We're glad you're here! Let me get straight to the point. Something strange has been going on in Tam Village. Many of our people have fallen ill. We need you to investigate. I hear the village healer might have some information for you. Please see Clara on your way out. She has more information on the issue."</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/island.gif') }} width="400px" /></p>
+            </div>
+        </div>
+        <form method="POST" action="/branch-1a" class="form">
+            <label class="form-label">Where would you like to go?</label>
+            <select class="form-select my-2" aria-label="Default select" name='answer' required>
+                <option selected>--Select--</option>
+                <option value="clara">See Clara</option>
+                <option value="investigate">Start investigating</option>
+            </select>
+            <input type="submit" class="btn btn-dark">
+        </form>
+    </div>
+{% endblock %}

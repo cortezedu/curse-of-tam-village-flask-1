@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/battle.gif') }} width="400px" /></p>
+    {{attack | safe}}
+    <form method="POST" action="/fight" class="form">
+        <label class="form-label">Select your move:</label>
+        <select class="form-select my-2" aria-label="Default select" name='fight' required>
+            <option selected>--Select--</option>
+            {% if aga_hp > 0 %}
+            <option value="aga">Fight Aga</option>
+            {% endif %}
+            {% if hilitai_hp > 0 %}
+            <option value="hilitai">Fight Hilitai</option>
+            {% endif %}
+            {% if aga_hp <= 0 and hilitai_hp <= 0 and sorceress_hp > 0 %}
+            <option value="sorceress">Fight Sorceress Lanie</option>
+            {% endif %}
+            {% if heal != "" %}
+            <option value="heal">Use {{heal}}</option>
+            {% endif %}
+            <option value="run">Run away</option>
+        </select>
+        <input type="submit" class="btn btn-dark">
+    </form>
+{% endblock %}

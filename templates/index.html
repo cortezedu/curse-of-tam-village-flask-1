@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="fst-italic text-center">
+        <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/curse-tam-village.png') }} width="400px" /></p>
+        <p>A mysterious ailment is spreading amongst the villagers of Tam Village. Can you help solve the mystery?</p>
+        
+        <a href="/begin" class="btn btn-success">Begin Mystery</a>
+    </div>
+{% endblock %}

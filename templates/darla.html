@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <p><strong>Darla (Village Historian):</strong> "Hello {{session['hero_name']}}. I see you came to hear about the strange illnesses. I have interviewed some of the sick villagers on what they did before they got sick. They mentioned a strange cave down by the beach. I couldn't get anymore info beyond that. I went down to the beach and saw the cave. It seems the cave had been hidden for years and only revealed itself after the earthquake we had a couple weeks ago. I heard a scary laugh coming from inside. Through the ancient books of this island, I found a legend about an evil sorceress who cursed the island long ago. If you're going to explore down there, I highly suggest you take a weapon with you."</p>  
+        <br />
+          
+        <form method="POST" action="/branch-3" class="form">
+            <label class="form-label">Select Item:</label>
+            <select class="form-select my-2" aria-label="Default select" name='weapon_item' required>
+                <option selected>--Select--</option>
+                <option value="stick">Wooden Stick</option>
+                <option value="axe">Steel Axe</option>
+                <option value="sword">Diamond Sword</option>
+            </select>
+            <input type="submit" class="btn btn-dark">
+        </form>
+    </div>
+{% endblock %}

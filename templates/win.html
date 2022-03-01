@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row p-2">
+        <div class="col-12 col-md-6">
+            <p><img class="img-fluid mx-auto d-block rounded" src={{ url_for('static', filename='images/win.gif') }} width="400px" /></p>
+        </div>
+        <div class="col-12 col-md-6">
+            <p>You saved the village!</p><br />
+            <p>You gave the venom to Flora. She was able to create a cure for the sick villagers.</p><br />
+            <p><strong>Chief Dan:</strong> "Thank you for saving our village! As of today, you have earned the title: Tam Village Hero"</p>
+        </div>
+    </div>
+{% endblock %}
